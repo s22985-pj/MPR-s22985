@@ -6,13 +6,23 @@ public class Car {
     private int pojemnoscSilnika;
     private int vMax;
     private String kolor;
+    private int wheels;
 
-    public Car(String kolor, int vMax, int pojemnoscSilnika, String model, String marka) {
+    public Car(String kolor, int vMax, int pojemnoscSilnika, String model, String marka, int wheels) {
         this.kolor = kolor;
         this.vMax = vMax;
         this.pojemnoscSilnika = pojemnoscSilnika;
         this.model = model;
         this.marka = marka;
+        this.wheels = wheels;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(int wheels) {
+        this.wheels = wheels;
     }
 
     public String getMarka() {
@@ -55,6 +65,8 @@ public class Car {
         this.kolor = kolor;
     }
 
+
+
     @Override
     public String toString() {
         return "Car{" +
@@ -63,6 +75,7 @@ public class Car {
                 ", pojemnoscSilnika=" + pojemnoscSilnika +
                 ", vMax=" + vMax +
                 ", kolor='" + kolor + '\'' +
+                ", wheels=" + wheels +
                 '}';
     }
 }
