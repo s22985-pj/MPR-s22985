@@ -18,6 +18,53 @@ public class Car {
     public String getMarka() {
         return marka;
     }
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getPojemnoscSilnika() {
+        return pojemnoscSilnika;
+    }
+
+    public void setPojemnoscSilnika(int pojemnoscSilnika) {
+        this.pojemnoscSilnika = pojemnoscSilnika;
+    }
+
+    public int getvMax() {
+        return vMax;
+    }
+
+    public void setvMax(int vMax) {
+        this.vMax = vMax;
+    }
+
+    public String getKolor() {
+        return kolor;
+    }
+
+    public void setKolor(String kolor) {
+        this.kolor = kolor;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "marka='" + marka + '\'' +
+                ", model='" + model + '\'' +
+                ", pojemnoscSilnika=" + pojemnoscSilnika +
+                ", vMax=" + vMax +
+                ", kolor='" + kolor + '\'' +
+                '}';
+    }
 }
 
 
