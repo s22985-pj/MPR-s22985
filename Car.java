@@ -8,12 +8,14 @@ public class Car {
     private String kolor;
     private int wheels;
 
+
+
     public Car(String kolor, int vMax, int pojemnoscSilnika, String model, String marka, int wheels) {
+        this.model = model;
+        this.marka = marka;
         this.kolor = kolor;
         this.vMax = vMax;
         this.pojemnoscSilnika = pojemnoscSilnika;
-        this.model = model;
-        this.marka = marka;
         this.wheels = wheels;
     }
 
