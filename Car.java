@@ -1,6 +1,16 @@
 package pl.pjatk.factory;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Car {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String marka;
     private String model;
     private int pojemnoscSilnika;
@@ -8,6 +18,9 @@ public class Car {
     private String kolor;
     private int wheels;
 
+    public Car(){
+
+    }
 
 
     public Car(String kolor, int vMax, int pojemnoscSilnika, String model, String marka, int wheels) {
