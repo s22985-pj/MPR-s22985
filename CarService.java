@@ -6,8 +6,21 @@ import org.springframework.stereotype.Service;
 
 public class CarService {
 
+    private final CarRepository carRepository;
+
+    public CarService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
+
     public Car buildCar(String marka, String model) {
+
         Car car = new Car("LA7W", 100, 1000, model, marka, 4);
+        carRepository.save(car);
+
+
+
+
     return car;
     }
 
