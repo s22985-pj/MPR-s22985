@@ -37,6 +37,18 @@ public class CarService {
              car.setWheels(car.getWheels()+1);
 
     }
+    public void changeVmax(Car car){
+        if (car.getvMax() < 180)
+            car.getvMax();
+        else  car.setvMax(car.getvMax()+100);
+    }
+
+    public void checkWheels(Car car){
+        if (car.getWheels() == 5)
+            car.getWheels();
+        else addWhell(car);
+    }
+
 
     public Car FindbyId(Long id) {
         Optional<Car> byId = carRepository.findById(id);
