@@ -1,5 +1,6 @@
 package pl.pjatk.factory;
 
+import org.apache.catalina.valves.rewrite.InternalRewriteMap;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -47,6 +48,35 @@ public class CarService {
         if (car.getWheels() == 5)
             car.getWheels();
         else addWhell(car);
+    }
+
+
+
+    public String changeMarka(Car car, String marka){
+        if (car.getMarka() == null || car.getMarka().isBlank()){
+            car.setMarka(marka);
+        }
+        return car.getMarka();
+    }
+
+    public String changeModel(Car car, String model){
+        if (car.getModel() == null || car.getModel().isBlank()){
+            car.setMarka(model);
+        }
+        return car.getModel();
+    }
+
+//    public void multiplyCapacity(Car car){
+//        int capacity = car.getCapacity() * 3;
+//        car.setCapacity(capacity);
+//    }
+
+    public boolean isValisMarka(Car car){
+        if (car.getMarka() != null && car.getMarka().length() > 5){
+            return true;
+        } else {
+            throw new RuntimeException();
+        }
     }
 
 
