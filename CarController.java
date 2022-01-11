@@ -14,13 +14,9 @@ public class CarController {
     } // wstrzykiwanie zależności
 
 
-
-
-
     @GetMapping
-    public ResponseEntity<Car> printHelloWorld() {
-
-        return ResponseEntity.ok(carService.buildCar("Toyota", "Corolla"));
+    public ResponseEntity<String> printHelloWorld() {
+        return ResponseEntity.ok("Hello World");
     }
 
     @GetMapping("/build")
@@ -33,7 +29,7 @@ public class CarController {
 
     @GetMapping("/find/{id}")
     public ResponseEntity<Car> findCar(@PathVariable Long id) {
-        return ResponseEntity.ok(carService.FindbyId(id));
+        return ResponseEntity.ok(carService.findbyId(id));
     }
     //Poczytać o OPTIONAL
     //Poczytać o @PathVariable

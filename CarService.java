@@ -1,8 +1,8 @@
 package pl.pjatk.factory;
 
-import org.apache.catalina.valves.rewrite.InternalRewriteMap;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,45 +22,41 @@ public class CarService {
         return carRepository.save(car);
     }
 
-
-
-
-    public void print(Car car){
+    public void print(Car car) {
         System.out.println(car);
 
     }
 
-    public void addWhell(Car car){
+    public void addWhell(Car car) {
 
         if (car.getWheels() > 5)
-             car.getWheels();
+            car.getWheels();
         else
-             car.setWheels(car.getWheels()+1);
+            car.setWheels(car.getWheels() + 1);
 
     }
-    public void changeVmax(Car car){
+
+    public void changeVmax(Car car) {
         if (car.getvMax() < 180)
             car.getvMax();
-        else  car.setvMax(car.getvMax()+100);
+        else car.setvMax(car.getvMax() + 100);
     }
 
-    public void checkWheels(Car car){
+    public void checkWheels(Car car) {
         if (car.getWheels() == 5)
             car.getWheels();
         else addWhell(car);
     }
 
-
-
-    public String changeMarka(Car car, String marka){
-        if (car.getMarka() == null || car.getMarka().isBlank()){
+    public String changeMarka(Car car, String marka) {
+        if (car.getMarka() == null || car.getMarka().isBlank()) {
             car.setMarka(marka);
-        }
+        } else car.setMarka(marka);
         return car.getMarka();
     }
 
-    public String changeModel(Car car, String model){
-        if (car.getModel() == null || car.getModel().isBlank()){
+    public String changeModel(Car car, String model) {
+        if (car.getModel() == null || car.getModel().isBlank()) {
             car.setMarka(model);
         }
         return car.getModel();
@@ -71,30 +67,46 @@ public class CarService {
 //        car.setCapacity(capacity);
 //    }
 
-    public boolean isValisMarka(Car car){
-        if (car.getMarka() != null && car.getMarka().length() > 5){
+    public boolean isValisMarka(Car car) {
+        if (car.getMarka() != null && car.getMarka().length() > 5) {
             return true;
         } else {
             throw new RuntimeException();
         }
     }
 
-
-    public Car FindbyId(Long id) {
+    public Car findbyId(Long id) {
         Optional<Car> byId = carRepository.findById(id);
-        Car byIdFlat = carRepository.findById(id).get();
-        if (byIdFlat != null){
-            return byIdFlat;
-        } else {
+//        Car byIdFlat = carRepository.findById(id).get();
+//        if (byIdFlat != null){
+//            return byIdFlat;
+//        } else {
+//        }
+//       if( byId.isPresent() ) {
+//           return byId.get();
+//       }
+        return byId.orElse(null);
+    }
 
-        }
+    //exists
+    //findAll()
+    //count()
+    //delete()
 
-       if( byId.isPresent() ) {
-           return byId.get();
-       }
+    public List<Car> findAllCars() {
+        return carRepository.findAll();
+    }
 
+    public long countCars() {
+        return carRepository.count();
+    }
 
-     return byId.orElse(null);
+    public void deleteCar(Car car) {
+        carRepository.delete(car);
+    }
+
+    public boolean isExists(Long id) {
+        return carRepository.existsById(id);
     }
 
 }
